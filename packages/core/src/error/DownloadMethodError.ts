@@ -5,10 +5,10 @@ import BaseError from "./Base";
  * 下载方法错误
  */
 class DownloadMethodError extends BaseError {
-  constructor() {
+  constructor(message?: string) {
     super(
       ErrorCode.download_method_error,
-      '下载方法错误'
+      message ?? '下载方法错误'
     );
   }
 }

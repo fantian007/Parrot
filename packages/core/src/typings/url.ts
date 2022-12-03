@@ -15,5 +15,5 @@ export interface UrlParams {
   /**
    * 自定义需要收集的 url search 字段
    */
-  | Record<string, unknown>;
+  | string[];
 }

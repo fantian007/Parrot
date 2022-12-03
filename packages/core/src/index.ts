@@ -1,1 +1,1 @@
-import { default as Parrot } from './parrot';
+export { default as Parrot } from './parrot';

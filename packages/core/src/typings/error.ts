@@ -1,4 +1,6 @@
 import { AxiosError } from "axios";
+import { get } from 'lodash';
+import BaseError from "../error/Base";
 import { ParrotRequestConfig } from "./parrot";
 import { ResponseData } from './response';
 
@@ -30,3 +32,8 @@ export interface CustomErrorHandler {
 export type ErrorHandler =
   | MessageErrorHandler
   | CustomErrorHandler;
+
+/**
+ * 是否消息处理错误
+ */
+export const isMessageErrorHandle = (handler: ErrorHandler): handler is MessageErrorHandler => get(handler, 'mode') === 'message';
