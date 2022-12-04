@@ -9,6 +9,8 @@ const requestId: RequestInterceptor = (config: ParrotRequestConfig) => {
 
   if (requestId) {
     config.requestId = requestId;
+  } else {
+    config.requestId = Symbol();
   }
 
   return config;

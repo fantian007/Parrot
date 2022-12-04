@@ -3,7 +3,9 @@ import { isFunction } from 'lodash';
 import { ParrotRequestConfig } from '../typings/parrot';
 import {
   checkNetwork,
-  requestId
+  requestId,
+  urlParams,
+  successCode
 } from '../interceptors';
 import { isMessageErrorHandle } from '../typings/error';
 
@@ -18,6 +20,9 @@ export const processInterceptors = (axiosInstance: AxiosInstance, config?: Parro
 
   requestInterceptors.use(checkNetwork);
   requestInterceptors.use(requestId);
+  requestInterceptors.use(urlParams);
+
+  responseInterceptors.use(successCode);
 
   if (config) {
     const {
